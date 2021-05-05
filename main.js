@@ -1,13 +1,39 @@
-import getType from './getType'
+// 삼항 연산자(ternary operator)
 
-console.log(typeof 'Hello World!')
-console.log(typeof 123)
-console.log(typeof true)
-console.log(typeof undefined)
-console.log(typeof null)
-console.log(typeof {})
-console.log(typeof [])
+const a = 1 < 2
 
-console.log(getType(123))
-console.log(getType(false))
-console.log(getType(null))
+if (a) {
+  console.log('참')
+} else {
+  console.log('거짓')
+}
+
+console.log(a ? '참' : '거짓')
+
+import random from './getRandom'
+
+// 조건문 (If, Switch statement)
+
+const b = random()
+
+switch (a) {
+  case 0:
+    console.log('a is 0')
+    break
+  case 2:
+    console.log('a is 2')
+    break
+  case 4:
+    console.log('rest...')
+    break
+  default: 
+    console.log('rest...')
+}
+
+if (a === 0) {
+  console.log('a is 0')
+} else if (a === 2) {
+  console.log('a is 2')
+} else {
+  console.log('rest...')
+}
