@@ -1,71 +1,62 @@
-// 화살표 함수
-// () => {} vs function () {}
+// 자바스크립트 클래스
 
-const double = function (x, y) {
-  return x * 2
-}
-console.log('double: ', double(7))
+// function User(first, last) {
+//   this.firstName = first
+//   this.lastName = last
+// }
+// User.prototype.getFullName = function () {
+//   return `${this.firstName} ${this.lastName}`
+// }
 
-const doubleArrow = x => x * 2
-console.log('doubleArrow', doubleArrow(7))
-
-// 즉시실행함수
-// IIFE, Immediately-Invoked Function Expression
-
-// 호이스팅(Hoisting)
-// 함수 선언부가 유효범위 최상단으로 끌어올려지는 현상
-
-const a = 7
-
-double1();
-
-function double1() {
-  console.log(a * 2)
+class User {
+  constructor(first, last) {
+      this.firstName = first
+      this.lastName = last
+  }
+  getFullName() {
+    return `${this.firstName} ${this.lastName}`
+  }
 }
 
-(function double1() {
-  console.log(a * 2)
-})();
+const heropy = new User('Heropy', 'Park')
+const amy = new User('Amy', 'Clark')
+const neo = new User('Neo', 'Smith')
 
-(function double1() {
-  console.log(a * 2)
-}());
 
-// 타이머 함수
-// setTimeout(함수, 시간): 일정 시간 후 함수 실행
-// setInterval(함수, 시간): 시간 간격마다 함수 실행
-// clearTimeout(): 설정된 Timeout 함수를 종료
-// clearInterval(): 설정된 Interval 함수를 종료
+console.log(heropy.getFullName())
+console.log(amy)
+console.log(neo)
 
-const timer = setTimeout(() => {
-  console.log('HEROPY')
-}, 3000)
-
-const h1El = document.querySelector('h1')
-h1El.addEventListener('click', () => {
-  clearTimeout(timer)
-})
-
-const timer1 = setInterval(() => {
-  console.log('HEROPY1')
-}, 3000)
-
-const h1El1 = document.querySelector('h1')
-h1El.addEventListener('click', () => {
-  clearInterval(timer1)
-})
-
-// 콜백(Callback)
-// 함수의 진수로 사용되는 함수
-
-// ex) setTimeout(함수, 시간)
-
-function timeout(cb) {
-  setTimeout(() => {
-    console.log('Heropy!')
-    cb()
-  }, 3000)
+class Vehicle {
+  constructor(name, wheel) {
+    this.name = name
+    this.wheel = wheel
+  }
 }
-timeout(() => {
-  console.log('Done!')
-})
+
+const myVehicle = new Vehicle('운송수단', 2)
+console.log(myVehicle)
+
+class Bicycle extends Vehicle {
+  constructor(name, wheel) {
+    super(name, wheel)
+  }
+}
+
+const myBicycle = new Bicycle('삼천리', 2)
+const daughtersBicycle = new Bicycle('세발', 3)
+console.log(myBicycle)
+console.log(daughtersBicycle)
+
+class Car extends Vehicle {
+  constructor(name, wheel, license) {
+    super(name, wheel)
+    this.license = license
+  }
+}
+
+const myCar = new Car('벤츠', 4, true)
+const daughtersCar = new Car('포르쉐', 4, false)
+
+console.log(myCar)
+console.log(daughtersCar)
